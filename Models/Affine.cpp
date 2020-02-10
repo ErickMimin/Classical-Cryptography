@@ -11,14 +11,9 @@ void Affine::encrypt(){
 }
 
 void Affine::decrypt(){
-    for(int i = 0; i < menssage.length(); i++)
+    for(int i = 0; i < cMenssage.length(); i++)
         menssage.push_back(alphabet[mod(((alphabet.find_first_of(cMenssage[i]) - key.b) * modInverse(key.a, alphabet.length())), alphabet.length())]);      
 }
-
-void Affine::randomKey(){
-
-}
-
 
 int Affine::modInverse(int a, int m){ 
     a = mod(a, m);
@@ -32,17 +27,15 @@ int Affine::modInverse(int a, int m){
 } 
   
 int Affine::gcdExtended(int a, int b, int *x, int *y){ 
-    // Base Case 
+
     if (a == 0){ 
         *x = 0, *y = 1; 
         return b; 
     } 
   
-    int x1, y1; // To store results of recursive call 
+    int x1, y1;
     int gcd = gcdExtended(b % a, a, &x1, &y1); 
-  
-    // Update x and y using results of recursive 
-    // call 
+   
     *x = y1 - (b / a) * x1; 
     *y = x1; 
   

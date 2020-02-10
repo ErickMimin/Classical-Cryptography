@@ -12,8 +12,7 @@
             Vigenere(string, string, string);
             Vigenere(string, string);
             void encrypt();   
-            void decrypt(); 
-            void randomKey();     
+            void decrypt();     
 
     };
     

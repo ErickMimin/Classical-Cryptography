@@ -19,8 +19,7 @@ using namespace std;
             void setCipherMenssage(string);
             string getMenssage();
             virtual void encrypt(){}; 
-            virtual void decrypt(){};  
-            virtual void randomKey(){};    
+            virtual void decrypt(){};   
 
     };
     

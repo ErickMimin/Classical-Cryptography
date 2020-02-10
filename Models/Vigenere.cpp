@@ -13,7 +13,3 @@ void Vigenere::decrypt(){
     for(int i = 0; i < cMenssage.length(); i++)
         menssage.push_back(alphabet[mod(alphabet.find_first_of(cMenssage[i]) - alphabet.find_first_of(key[i % key.length()]), alphabet.length())]);    
 }
-
-void Vigenere::randomKey(){
-
-}

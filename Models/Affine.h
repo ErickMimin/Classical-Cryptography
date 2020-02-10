@@ -19,8 +19,7 @@
             static int modInverse(int, int);
             static int gcdExtended(int, int, int*, int*);
             void encrypt();   
-            void decrypt(); 
-            void randomKey();     
+            void decrypt();     
 
     };
 
