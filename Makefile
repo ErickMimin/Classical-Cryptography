@@ -2,7 +2,7 @@ MAIN=main.cpp
 DEPENDENCIES=Models/Vigenere.cpp Models/Cipher.cpp Models/Affine.cpp
 LIBRARIES= -I./Models 
 ALPHABET=alphabet.txt
-FILE=menssage
+FILE=Menssages/m3
 
 run_vig_en: main $(ALPHABET) $(FILE).txt
 	./main $(ALPHABET) $(FILE).txt 1

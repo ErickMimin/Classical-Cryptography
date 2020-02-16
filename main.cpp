@@ -5,6 +5,7 @@
 #include <time.h> 
 
 void toFile(string name, string content){
+    cout << name << endl;
     ofstream fileO(name);
     fileO << content;
     fileO.close();
@@ -27,10 +28,13 @@ int main(int argc, char* argv[]){
 
         if(atoi(argv[3]) == 1){
             string key;
+            cout << "Introduce la llave(Cadena): ";
+            getline(cin, key);
+            /*
             char sel;
             cout << "¿Random key?(y/n): ";
-            cin >> sel;
-            if(sel == 'y'){
+            scanf("%c", &sel);
+            if(sel != 'y'){
                 key = "";
                 int max = rand() % menssage.length() + 1;
                 for(int i = 0; i < max; i++)
@@ -38,8 +42,8 @@ int main(int argc, char* argv[]){
                 toFile("key.vig", key);
             }else{
                 cout << "Introduce la llave(Cadena): ";
-                cin >> key;
-            }   
+                getline(cin, key);
+            }*/ 
             Vigenere vigenere(key, alphabet, menssage);
             vigenere.encrypt();
             toFile(fileName.replace(fileName.find_first_of('.'), 4, ".vig"), vigenere.getCipherMenssage());

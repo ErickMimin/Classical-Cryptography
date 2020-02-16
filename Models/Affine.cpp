@@ -5,14 +5,22 @@ Affine::Affine(AffineKey k, string a, string m): Cipher(a, m), key(k){}
 Affine::Affine(AffineKey k, string a): Cipher(a), key(k){}
 
 void Affine::encrypt(){
-    for(int i = 0; i < menssage.length(); i++)
-        cMenssage.push_back(alphabet[mod(((alphabet.find_first_of(menssage[i]) * key.a) + key.b), alphabet.length())]);    
+    for(int i = 0; i < menssage.length(); i++){
+        if(alphabet.find(menssage[i]) < alphabet.length())
+            cMenssage.push_back(alphabet[mod(((alphabet.find_first_of(menssage[i]) * key.a) + key.b), alphabet.length())]);    
+        else 
+            cMenssage.push_back(menssage[i]);
+    }
     
 }
 
 void Affine::decrypt(){
-    for(int i = 0; i < cMenssage.length(); i++)
-        menssage.push_back(alphabet[mod(((alphabet.find_first_of(cMenssage[i]) - key.b) * modInverse(key.a, alphabet.length())), alphabet.length())]);      
+    for(int i = 0; i < cMenssage.length(); i++){
+        if(alphabet.find(cMenssage[i]) < alphabet.length())
+            menssage.push_back(alphabet[mod(((alphabet.find_first_of(cMenssage[i]) - key.b) * modInverse(key.a, alphabet.length())), alphabet.length())]);
+        else
+            menssage.push_back(cMenssage[i]);        
+    }
 }
 
 int Affine::modInverse(int a, int m){ 
